@@ -137,7 +137,7 @@ def get_encnet(dataset='pascal_voc', backbone='resnet50s', pretrained=False,
     kwargs['lateral'] = True if dataset.lower().startswith('p') else False
     # infer number of classes
     from ...datasets import datasets, acronyms
-    model = EncNet(datasets[dataset.lower()].NUM_CLASS, backbone=backbone, root=root, **kwargs)
+    model = EncNet(20, backbone=backbone, root=root, **kwargs)
     if pretrained:
         from ..model_store import get_model_file
         model.load_state_dict(torch.load(
